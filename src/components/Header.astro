@@ -1,0 +1,16 @@
+---
+console.log('Halo dek');
+const title: string = 'Astro';
+
+// proses build -> mode static
+// proses request terjadi dari user -> mode server
+// Gak jalan di client browser
+// Fetching data, akses database, akses API
+---
+
+<h1>Header ya...</h1>
+<button>Click saya dong cakep!</button>
+<script>
+	const button = document.querySelector('button');
+	button.addEventListener('click', () => alert('Hello, World!'));
+</script>

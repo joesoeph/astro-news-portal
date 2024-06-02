@@ -1,0 +1,12 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title='Homepage Astro'>
+	<h1>Astro Jos</h1>
+	<a href='/about'>About</a>
+	<Header slot='header' />
+	<Footer name='Iya dong!' />
+</MainLayout>
