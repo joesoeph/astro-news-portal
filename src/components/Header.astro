@@ -1,16 +1,34 @@
 ---
 console.log('Halo dek');
 const title: string = 'Astro';
-
-// proses build -> mode static
-// proses request terjadi dari user -> mode server
-// Gak jalan di client browser
-// Fetching data, akses database, akses API
+const description: string = 'Astro starter kit';
 ---
 
 <h1>Header ya...</h1>
 <button>Click saya dong cakep!</button>
 <script>
-	const button = document.querySelector('button');
-	button.addEventListener('click', () => alert('Hello, World!'));
+	const button = document.querySelectorAll('button');
+	button.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			alert('Hello world!');
+		});
+	});
+</script>
+<!-- <script src='../scripts/header.js'></script> -->
+<!-- <script>
+	const message: string = 'Hello typescript!';
+	console.log(message);
+</script>
+<script is:inline src='/global.js'></script>
+<script is:inline src='https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js'
+></script>
+<script>
+	console.log(dayjs().format('YYYY'));
+</script>
+<script is:inline>
+	import '../scripts/header.js';
+	console.log('Hello everyone');
+</script> -->
+<script is:inline define:vars={{ description, title }}>
+	console.log('defineVars', title, description);
 </script>
