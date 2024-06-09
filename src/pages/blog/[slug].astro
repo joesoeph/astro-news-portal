@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import erika from '../../assets/erika.jpg';
@@ -19,6 +20,26 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
 <MainLayout title={post.data.title}>
+	<SEO
+		slot='seo'
+		title={post.data.title}
+		description={post.data.excerpt}
+		twitter={{
+			creator: '@yusuffazeri',
+			card: 'summary_large_image',
+		}}
+		openGraph={{
+			basic: {
+				type: 'website',
+				title: post.data.title,
+				image: post.data.image,
+			},
+			image: {
+				alt: 'Thumbnail',
+			},
+		}}
+	/>
+
 	<main class='mt-content'>
 		<div class='content-header'>
 			<h1>
@@ -44,12 +65,16 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 			</div>
 		</div>
 
+		<!-- Social Button Goes Here! -->
+
 		<div class='picture'>
 			<Image inferSize src={post.data.image} alt={post.data.image} />
 		</div>
 		<div class='content'>
 			<Content />
 		</div>
+
+		<!-- Social Button Goes Here! -->
 	</main>
 </MainLayout>
 

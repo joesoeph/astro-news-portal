@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo';
 import { getCollection } from 'astro:content';
 import Card from '../components/Card.astro';
 import MainLayout from '../layouts/MainLayout.astro';
@@ -6,7 +7,27 @@ import MainLayout from '../layouts/MainLayout.astro';
 const blogPosts = await getCollection('blog');
 ---
 
-<MainLayout title='Homepage'>
+<MainLayout title='Home'>
+	<SEO
+		slot='seo'
+		title='Astro News Portal - Daily News for Everyone'
+		description='Selamat datang di Portal Berita Astro - Tempat nyantai buat update berita tiap hari! Di sini kamu bisa tetap up to date dengan berita terbaru, topik seru, dan artikel menarik yang cocok buat semua orang. Yuk, jalan-jalan ke berbagai kategori dan temukan cerita yang bikin penasaran.'
+		twitter={{
+			creator: '@yusuffazeri',
+			card: 'summary_large_image',
+		}}
+		openGraph={{
+			basic: {
+				type: 'website',
+				title: 'Astro News Portal - Daily News for Everyone',
+				image: '/ogImage_default.jpeg',
+			},
+			image: {
+				alt: 'Thumbnail',
+			},
+		}}
+	/>
+
 	<!-- <h1>Homepage</h1>
 
 	<h2>Slider Posts</h2>
