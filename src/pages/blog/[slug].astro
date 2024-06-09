@@ -3,6 +3,7 @@ import { SEO } from 'astro-seo';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import erika from '../../assets/erika.jpg';
+import Share from '../../components/Share.astro';
 import MainLayout from '../../layouts/MainLayout.astro';
 import { getFormattedDate } from '../../utils/global';
 
@@ -66,6 +67,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 		</div>
 
 		<!-- Social Button Goes Here! -->
+		<Share />
 
 		<div class='picture'>
 			<Image inferSize src={post.data.image} alt={post.data.image} />
@@ -75,6 +77,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 		</div>
 
 		<!-- Social Button Goes Here! -->
+		<Share />
 	</main>
 </MainLayout>
 
