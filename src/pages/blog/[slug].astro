@@ -66,7 +66,6 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 			</div>
 		</div>
 
-		<!-- Social Button Goes Here! -->
 		<Share />
 
 		<div class='picture'>
@@ -76,10 +75,30 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 			<Content />
 		</div>
 
-		<!-- Social Button Goes Here! -->
 		<Share />
+
+		<!-- Disqus Comment Goes Here! -->
+		<div id='disqus_thread'></div>
 	</main>
 </MainLayout>
+
+<script
+	is:inline
+	define:vars={{ PAGE_URL: Astro.url.href, PAGE_IDENTIFIER: post.slug }}
+>
+	var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	(function () {
+		// DON'T EDIT BELOW THIS LINE
+		var d = document,
+			s = d.createElement('script');
+		s.src = 'https://astro-news-portal.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
 
 <style>
 	main {
