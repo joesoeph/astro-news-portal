@@ -16,8 +16,6 @@ export const getStaticPaths = async () => {
 
 const { post } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await post.render();
-
-console.log(remarkPluginFrontmatter);
 ---
 
 <MainLayout title={post.data.title}>
